@@ -22,6 +22,7 @@ const MenuPage = () => {
   };
 
   const totalItems = getTotalItems();
+  const activeCat = menuCategories.find((c) => c.name === activeCategory)!;
 
   return (
     <div className="min-h-screen bg-background max-w-md mx-auto flex flex-col">
@@ -63,53 +64,59 @@ const MenuPage = () => {
         </div>
       </div>
 
+      {/* Category hero banner */}
+      <div className="relative h-36 overflow-hidden">
+        <img
+          src={activeCat.image}
+          alt={activeCat.name}
+          className="w-full h-full object-cover"
+          width={512}
+          height={512}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 to-transparent" />
+        <h2 className="absolute bottom-3 left-4 text-xl font-display font-bold text-cream">
+          {activeCat.icon} {activeCat.name}
+        </h2>
+      </div>
+
       {/* Items */}
       <div className="flex-1 px-4 py-4 pb-24">
-        {menuCategories
-          .filter((cat) => cat.name === activeCategory)
-          .map((cat) => (
-            <div key={cat.name}>
-              <h2 className="text-lg font-display font-semibold text-foreground mb-3">
-                {cat.icon} {cat.name}
-              </h2>
-              <div className="space-y-2">
-                {cat.items.map((item) => {
-                  const qty = getItemQuantity(item.id);
-                  return (
-                    <div
-                      key={item.id}
-                      className="flex items-center justify-between bg-card rounded-lg px-4 py-3 border border-border animate-fade-in"
-                    >
-                      <div>
-                        <p className="font-medium text-foreground text-sm">{item.name}</p>
-                        <p className="text-accent font-bold text-sm">₹{item.price}</p>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        {qty > 0 ? (
-                          <div className="flex items-center gap-2 bg-primary rounded-full px-1 py-0.5">
-                            <button onClick={() => handleDecrease(item.id)} className="w-7 h-7 flex items-center justify-center text-primary-foreground">
-                              <Minus className="w-4 h-4" />
-                            </button>
-                            <span className="text-primary-foreground font-bold text-sm min-w-[16px] text-center">{qty}</span>
-                            <button onClick={() => handleAdd(item)} className="w-7 h-7 flex items-center justify-center text-primary-foreground">
-                              <Plus className="w-4 h-4" />
-                            </button>
-                          </div>
-                        ) : (
-                          <button
-                            onClick={() => handleAdd(item)}
-                            className="px-4 py-1.5 bg-primary text-primary-foreground rounded-full text-xs font-semibold hover:opacity-90 transition"
-                          >
-                            ADD
-                          </button>
-                        )}
-                      </div>
+        <div className="space-y-2">
+          {activeCat.items.map((item) => {
+            const qty = getItemQuantity(item.id);
+            return (
+              <div
+                key={item.id}
+                className="flex items-center justify-between bg-card rounded-lg px-4 py-3 border border-border animate-fade-in"
+              >
+                <div>
+                  <p className="font-medium text-foreground text-sm">{item.name}</p>
+                  <p className="text-accent font-bold text-sm">₹{item.price}</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  {qty > 0 ? (
+                    <div className="flex items-center gap-2 bg-primary rounded-full px-1 py-0.5">
+                      <button onClick={() => handleDecrease(item.id)} className="w-7 h-7 flex items-center justify-center text-primary-foreground">
+                        <Minus className="w-4 h-4" />
+                      </button>
+                      <span className="text-primary-foreground font-bold text-sm min-w-[16px] text-center">{qty}</span>
+                      <button onClick={() => handleAdd(item)} className="w-7 h-7 flex items-center justify-center text-primary-foreground">
+                        <Plus className="w-4 h-4" />
+                      </button>
                     </div>
-                  );
-                })}
+                  ) : (
+                    <button
+                      onClick={() => handleAdd(item)}
+                      className="px-4 py-1.5 bg-primary text-primary-foreground rounded-full text-xs font-semibold hover:opacity-90 transition"
+                    >
+                      ADD
+                    </button>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
+        </div>
       </div>
 
       {/* Bottom bar */}

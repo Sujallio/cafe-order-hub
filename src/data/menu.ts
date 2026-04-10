@@ -1,3 +1,17 @@
+import breakfastImg from "@/assets/menu/breakfast.jpg";
+import hotBeveragesImg from "@/assets/menu/hot-beverages.jpg";
+import coldBeveragesImg from "@/assets/menu/cold-beverages.jpg";
+import mojitoImg from "@/assets/menu/mojito.jpg";
+import sodasImg from "@/assets/menu/sodas.jpg";
+import snacksImg from "@/assets/menu/snacks.jpg";
+import burgersImg from "@/assets/menu/burgers.jpg";
+import momosImg from "@/assets/menu/momos.jpg";
+import sandwichesImg from "@/assets/menu/sandwiches.jpg";
+import pizzasImg from "@/assets/menu/pizzas.jpg";
+import pastaImg from "@/assets/menu/pasta.jpg";
+import garlicBreadImg from "@/assets/menu/garlic-bread.jpg";
+import maggiImg from "@/assets/menu/maggi.jpg";
+
 export interface MenuItem {
   id: string;
   name: string;
@@ -8,6 +22,7 @@ export interface MenuItem {
 export interface MenuCategory {
   name: string;
   icon: string;
+  image: string;
   items: MenuItem[];
 }
 
@@ -15,6 +30,7 @@ export const menuCategories: MenuCategory[] = [
   {
     name: "Breakfast",
     icon: "🍳",
+    image: breakfastImg,
     items: [
       { id: "b1", name: "Poha", price: 39, category: "Breakfast" },
     ],
@@ -22,6 +38,7 @@ export const menuCategories: MenuCategory[] = [
   {
     name: "Hot Beverages",
     icon: "☕",
+    image: hotBeveragesImg,
     items: [
       { id: "hb1", name: "Chai", price: 15, category: "Hot Beverages" },
       { id: "hb2", name: "Black Tea", price: 25, category: "Hot Beverages" },
@@ -34,6 +51,7 @@ export const menuCategories: MenuCategory[] = [
   {
     name: "Cold Beverages & Shakes",
     icon: "🥤",
+    image: coldBeveragesImg,
     items: [
       { id: "cb1", name: "Cold Coffee", price: 39, category: "Cold Beverages & Shakes" },
       { id: "cb2", name: "Lemon Iced Tea", price: 39, category: "Cold Beverages & Shakes" },
@@ -45,6 +63,7 @@ export const menuCategories: MenuCategory[] = [
   {
     name: "Mojito",
     icon: "🍹",
+    image: mojitoImg,
     items: [
       { id: "m1", name: "Strawberry Mojito", price: 39, category: "Mojito" },
       { id: "m2", name: "Mango Mojito", price: 39, category: "Mojito" },
@@ -58,6 +77,7 @@ export const menuCategories: MenuCategory[] = [
   {
     name: "Sodas",
     icon: "🥂",
+    image: sodasImg,
     items: [
       { id: "s1", name: "Pineapple Soda", price: 29, category: "Sodas" },
       { id: "s2", name: "Kala Khatta Soda", price: 29, category: "Sodas" },
@@ -68,6 +88,7 @@ export const menuCategories: MenuCategory[] = [
   {
     name: "Snacks & Starters",
     icon: "🍟",
+    image: snacksImg,
     items: [
       { id: "ss1", name: "French Fries", price: 79, category: "Snacks & Starters" },
       { id: "ss2", name: "Veggie Sticks", price: 79, category: "Snacks & Starters" },
@@ -82,6 +103,7 @@ export const menuCategories: MenuCategory[] = [
   {
     name: "Burgers",
     icon: "🍔",
+    image: burgersImg,
     items: [
       { id: "bg1", name: "Veg Burger", price: 49, category: "Burgers" },
       { id: "bg2", name: "Veg Cheese Burger", price: 59, category: "Burgers" },
@@ -95,6 +117,7 @@ export const menuCategories: MenuCategory[] = [
   {
     name: "Momos",
     icon: "🥟",
+    image: momosImg,
     items: [
       { id: "mo1", name: "Steam Momos", price: 69, category: "Momos" },
       { id: "mo2", name: "Fried Momos", price: 89, category: "Momos" },
@@ -107,6 +130,7 @@ export const menuCategories: MenuCategory[] = [
   {
     name: "Sandwiches",
     icon: "🥪",
+    image: sandwichesImg,
     items: [
       { id: "sw1", name: "Veg Sandwich", price: 39, category: "Sandwiches" },
       { id: "sw2", name: "Cheese Sandwich", price: 49, category: "Sandwiches" },
@@ -121,6 +145,7 @@ export const menuCategories: MenuCategory[] = [
   {
     name: "Pizzas",
     icon: "🍕",
+    image: pizzasImg,
     items: [
       { id: "pz1", name: "Margherita Pizza", price: 109, category: "Pizzas" },
       { id: "pz2", name: "Tandoori Paneer Pizza", price: 129, category: "Pizzas" },
@@ -129,6 +154,7 @@ export const menuCategories: MenuCategory[] = [
   {
     name: "Pasta",
     icon: "🍝",
+    image: pastaImg,
     items: [
       { id: "pa1", name: "Alfredo Pasta", price: 129, category: "Pasta" },
       { id: "pa2", name: "Penne Arrabbiata", price: 129, category: "Pasta" },
@@ -137,6 +163,7 @@ export const menuCategories: MenuCategory[] = [
   {
     name: "Garlic Bread",
     icon: "🧄",
+    image: garlicBreadImg,
     items: [
       { id: "gb1", name: "Garlic Bread", price: 79, category: "Garlic Bread" },
       { id: "gb2", name: "Cheese Garlic Bread", price: 99, category: "Garlic Bread" },
@@ -145,6 +172,7 @@ export const menuCategories: MenuCategory[] = [
   {
     name: "Maggi",
     icon: "🍜",
+    image: maggiImg,
     items: [
       { id: "mg1", name: "Classic Maggi", price: 29, category: "Maggi" },
       { id: "mg2", name: "Cheese Maggi", price: 39, category: "Maggi" },
